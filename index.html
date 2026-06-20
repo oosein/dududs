@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DUDUDS | Staff Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#000;
+  --card:#060606;
+  --border:#1a1a1a;
+  --border2:#333;
+  --text:#fff;
+  --muted:#9a9a9a;
+  --soft:#666;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:#000;
+  color:var(--text);
+  font-family:"Inter",Arial,sans-serif;
+  min-height:100vh;
+}
+
+a{text-decoration:none;color:inherit}
+
+.page{
+  max-width:1180px;
+  margin:0 auto;
+  padding:26px 18px 50px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:38px;
+}
+
+.logo{
+  font-size:17px;
+  font-weight:900;
+}
+
+.lang{
+  background:#050505;
+  border:1px solid var(--border);
+  color:#ddd;
+  border-radius:999px;
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.22s ease;
+}
+
+.lang:hover{
+  transform:translateY(-2px);
+  border-color:var(--border2);
+  background:#0d0d0d;
+}
+
+.hero{
+  max-width:840px;
+  margin:0 auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:32px;
+  padding:38px 34px;
+  text-align:center;
+  transition:.25s ease;
+}
+
+.hero:hover,
+.card:hover,
+.server-card:hover,
+.skill:hover{
+  transform:translateY(-5px);
+  border-color:var(--border2);
+  background:#090909;
+}
+
+.avatar{
+  display:block;
+  width:145px;
+  height:145px;
+  border-radius:34px;
+  object-fit:cover;
+  border:1px solid var(--border2);
+  margin:0 auto 22px;
+}
+
+h1{
+  font-size:56px;
+  line-height:1;
+  letter-spacing:-2px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.subtitle{
+  color:#cfcfcf;
+  font-size:16px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.hero-text{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.65;
+  max-width:620px;
+  margin:0 auto;
+}
+
+.actions{
+  margin-top:24px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  background:#fff;
+  color:#000;
+  border-radius:999px;
+  padding:11px 16px;
+  font-size:13px;
+  font-weight:900;
+  transition:.22s ease;
+}
+
+.btn.dark{
+  background:#080808;
+  color:#f2f2f2;
+  border:1px solid var(--border2);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.section{
+  margin-top:54px;
+}
+
+.section-head{
+  margin-bottom:18px;
+}
+
+.section-head h2{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.section-head p{
+  color:var(--soft);
+  font-size:13px;
+  font-weight:650;
+  margin-top:6px;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:22px;
+  transition:.25s ease;
+}
+
+.card h3{
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.card p,.card li{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+}
+
+.card ul{
+  padding-left:18px;
+}
+
+.skills{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.skill{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:15px;
+  transition:.25s ease;
+}
+
+.skill-top{
+  display:flex;
+  justify-content:space-between;
+  color:#e7e7e7;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:9px;
+}
+
+.bar{
+  height:8px;
+  background:#111;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.fill{
+  height:100%;
+  background:#fff;
+  border-radius:999px;
+}
+
+.servers{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.server-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:18px;
+  transition:.25s ease;
+}
+
+.server-icon{
+  width:60px;
+  height:60px;
+  border-radius:18px;
+  border:1px solid var(--border2);
+  object-fit:cover;
+  background:#111;
+  margin-bottom:14px;
+}
+
+.server-card h3{
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:7px;
+}
+
+.role-tag{
+  display:inline-block;
+  background:#0b0b0b;
+  border:1px solid var(--border2);
+  color:#fff;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.server-card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:14px;
+}
+
+.join{
+  display:inline-block;
+  background:#080808;
+  border:1px solid var(--border2);
+  color:#fff;
+  border-radius:999px;
+  padding:8px 13px;
+  font-size:12px;
+  font-weight:900;
+  transition:.22s ease;
+}
+
+.join:hover{
+  transform:translateY(-2px);
+  background:#fff;
+  color:#000;
+}
+
+.timeline{
+  display:grid;
+  gap:14px;
+}
+
+.timeline-item{
+  background:#050505;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:17px;
+}
+
+.timeline-item span{
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+}
+
+.timeline-item b{
+  display:block;
+  font-size:15px;
+  margin:5px 0;
+}
+
+footer{
+  margin-top:56px;
+  text-align:center;
+  color:#444;
+  font-size:12px;
+  font-weight:800;
+}
+
+@media(max-width:930px){
+  .grid-2{grid-template-columns:1fr}
+  .servers{grid-template-columns:1fr 1fr}
+  .skills{grid-template-columns:1fr}
+}
+
+@media(max-width:620px){
+  .page{padding:22px 14px 42px}
+
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .logo{font-size:15px}
+
+  .hero{
+    border-radius:24px;
+    padding:26px 20px;
+  }
+
+  .avatar{
+    width:125px;
+    height:125px;
+    margin-bottom:20px;
+  }
+
+  h1{font-size:42px}
+
+  .card{
+    border-radius:24px;
+    padding:20px;
+  }
+
+  .servers{grid-template-columns:1fr}
+
+  .section-head h2{font-size:27px}
+
+  .actions{flex-direction:column}
+
+  .btn{text-align:center}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<header>
+  <div class="logo">DUDUDS</div>
+  <button class="lang" onclick="toggleLang()">ENG/PT</button>
+</header>
+
+<section class="hero">
+  <img class="avatar" src="https://i.pinimg.com/736x/b3/d4/9c/b3d49c36d9bfcf52abdfff0fbfdfdca3.jpg" alt="DUDUDS">
+
+  <h1>DUDUDS</h1>
+
+  <div class="subtitle" data-en="Professional Staff Portfolio" data-pt="Portfólio Profissional para Staff">Professional Staff Portfolio</div>
+
+  <p class="hero-text" data-en="Portfolio focused on online community moderation, organization, communication and community management." data-pt="Portfólio focado em moderação de comunidades online, organização, comunicação e gerenciamento de comunidades.">
+    Portfolio focused on online community moderation, organization, communication and community management.
+  </p>
+
+  <div class="actions">
+    <a class="btn" href="#servers" data-en="View Communities" data-pt="Ver Comunidades">View Communities</a>
+    <a class="btn dark" href="#skills" data-en="View Skills" data-pt="Ver Habilidades">View Skills</a>
+  </div>
+</section>
+
+<section class="section grid-2" id="about">
+  <div class="card">
+    <h3 data-en="About Me" data-pt="Sobre Mim">About Me</h3>
+    <p data-en="A responsible and organized profile focused on keeping communities safe, respectful and well managed." data-pt="Perfil responsável e organizado, focado em manter comunidades seguras, respeitosas e bem administradas.">
+      A responsible and organized profile focused on keeping communities safe, respectful and well managed.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 data-en="Goals" data-pt="Objetivos">Goals</h3>
+    <ul>
+      <li data-en="Help members with questions and issues." data-pt="Auxiliar membros com dúvidas e problemas.">Help members with questions and issues.</li>
+      <li data-en="Apply rules fairly and calmly." data-pt="Aplicar regras com justiça e calma.">Apply rules fairly and calmly.</li>
+      <li data-en="Support the team with tickets, events and organization." data-pt="Apoiar a equipe em tickets, eventos e organização.">Support the team with tickets, events and organization.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="section-head">
+    <h2 data-en="Skills" data-pt="Habilidades">Skills</h2>
+    <p data-en="Core abilities for moderation and community management." data-pt="Competências essenciais para moderação e gerenciamento de comunidades.">Core abilities for moderation and community management.</p>
+  </div>
+
+  <div class="skills">
+    <div class="skill"><div class="skill-top"><span data-en="Moderation" data-pt="Moderação">Moderation</span><span>95%</span></div><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+    <div class="skill"><div class="skill-top"><span data-en="Conflict Resolution" data-pt="Resolução de Conflitos">Conflict Resolution</span><span>90%</span></div><div class="bar"><div class="fill" style="width:90%"></div></div></div>
+    <div class="skill"><div class="skill-top"><span data-en="Public Support" data-pt="Atendimento ao Público">Public Support</span><span>92%</span></div><div class="bar"><div class="fill" style="width:92%"></div></div></div>
+    <div class="skill"><div class="skill-top"><span data-en="Teamwork" data-pt="Trabalho em Equipe">Teamwork</span><span>88%</span></div><div class="bar"><div class="fill" style="width:88%"></div></div></div>
+    <div class="skill"><div class="skill-top"><span data-en="Leadership" data-pt="Liderança">Leadership</span><span>86%</span></div><div class="bar"><div class="fill" style="width:86%"></div></div></div>
+    <div class="skill"><div class="skill-top"><span data-en="Organization" data-pt="Organização">Organization</span><span>91%</span></div><div class="bar"><div class="fill" style="width:91%"></div></div></div>
+  </div>
+</section>
+
+<section class="section" id="servers">
+  <div class="section-head">
+    <h2 data-en="Servers and Communities" data-pt="Servidores e Comunidades">Servers and Communities</h2>
+    <p data-en="Communities with Staff experience." data-pt="Comunidades com experiência em Staff.">Communities with Staff experience.</p>
+  </div>
+
+  <div class="servers">
+    <div class="server-card">
+      <img class="server-icon" src="https://cdn.discordapp.com/attachments/1509663890408083586/1517692969975549972/image.png?ex=6a373539&is=6a35e3b9&hm=6c589915531b9d72aebfc7d2d718383fa33ecb27236524c8d39b55e8a79d73ee&" alt="Shedwa's Creations">
+      <h3>Shedwa's Creations</h3>
+      <div class="role-tag">Smod</div>
+      <p data-en="Senior Moderator experience with support, organization and moderation decisions." data-pt="Experiência como Senior Moderator com suporte, organização e decisões de moderação.">Senior Moderator experience with support, organization and moderation decisions.</p>
+      <a class="join" href="https://discord.gg/Z82FhxHnW" target="_blank">Join</a>
+    </div>
+
+    <div class="server-card">
+      <img class="server-icon" src="https://cdn.discordapp.com/attachments/1509663890408083586/1517691089019076758/d6e6e72cc0eac697b30f5c296ee7e81e.png?ex=6a373378&is=6a35e1f8&hm=475a8093390f520028283f424c858ed473eb881b7a2ba4c78096373df3398a80&" alt="Anime Revengers">
+      <h3>Anime Revengers</h3>
+      <div class="role-tag">Mod</div>
+      <p data-en="Anime community moderation, member support and chat organization." data-pt="Moderação de comunidade anime, suporte aos membros e organização do chat.">Anime community moderation, member support and chat organization.</p>
+      <a class="join" href="https://discord.gg/animerev" target="_blank">Join</a>
+    </div>
+
+    <div class="server-card">
+      <img class="server-icon" src="https://cdn.discordapp.com/attachments/1253521147962593320/1517695752598720592/image.png?ex=6a3737d0&is=6a35e650&hm=b75fd2532d65f52a993f3565b2bb828b856911ba6e88cc5ec025169dab6b2205&" alt="Anime Heroes">
+      <h3>Anime Heroes</h3>
+      <div class="role-tag">Tmod</div>
+      <p data-en="Trial Moderator experience assisting the team and applying server rules." data-pt="Experiência como Trial Moderator auxiliando a equipe e aplicando regras.">Trial Moderator experience assisting the team and applying server rules.</p>
+      <a class="join" href="https://discord.gg/Dp6zXHcGU" target="_blank">Join</a>
+    </div>
+
+    <div class="server-card">
+      <img class="server-icon" src="https://cdn.discordapp.com/attachments/1509663890408083586/1517691223580606555/cb86298fcb50ac847ea82dfe1123c2d0.png?ex=6a373399&is=6a35e219&hm=30d8884924710e1727edd7811079d23e1aa0c3af908edd4f6b3eeace97120c8e&" alt="eFootball Brasil">
+      <h3>eFootball Brasil</h3>
+      <div class="role-tag">Tmod</div>
+      <p data-en="Community support, interaction moderation and server assistance." data-pt="Atendimento à comunidade, moderação de interações e suporte no servidor.">Community support, interaction moderation and server assistance.</p>
+      <a class="join" href="https://discord.gg/efootballbrasil" target="_blank">Join</a>
+    </div>
+
+    <div class="server-card">
+      <img class="server-icon" src="https://cdn.discordapp.com/attachments/1509663890408083586/1517692754614816798/image.png?ex=6a373506&is=6a35e386&hm=27352bd8ede03aee9a02cd6dbb4b6fbf916aec21bfc6fa45f2f54cf8a211e0b6&" alt="Anime Company">
+      <h3>Anime Company</h3>
+      <div class="role-tag">Tmod</div>
+      <p data-en="Support, member organization and community safety." data-pt="Suporte, organização de membros e segurança da comunidade.">Support, member organization and community safety.</p>
+      <a class="join" href="https://discord.gg/anime-company-1449213658608697538" target="_blank">Join</a>
+    </div>
+  </div>
+</section>
+
+<section class="section grid-2">
+  <div class="card">
+    <h3 data-en="Staff Experience" data-pt="Experiência como Staff">Staff Experience</h3>
+    <ul>
+      <li data-en="Chat and voice moderation." data-pt="Moderação de chat e voz.">Chat and voice moderation.</li>
+      <li data-en="Ticket support." data-pt="Atendimento em tickets.">Ticket support.</li>
+      <li data-en="Rule enforcement." data-pt="Aplicação de regras.">Rule enforcement.</li>
+      <li data-en="Event and community support." data-pt="Suporte em eventos e comunidade.">Event and community support.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 data-en="Moderation History" data-pt="Histórico de Moderação">Moderation History</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span>Tickets</span>
+        <b data-en="Member Support" data-pt="Atendimento aos membros">Member Support</b>
+        <p data-en="Help with questions, reports and general guidance." data-pt="Ajuda com dúvidas, denúncias e orientações gerais.">Help with questions, reports and general guidance.</p>
+      </div>
+
+      <div class="timeline-item">
+        <span data-en="Events" data-pt="Eventos">Events</span>
+        <b data-en="Activity Support" data-pt="Apoio em atividades">Activity Support</b>
+        <p data-en="Channel organization and event support." data-pt="Organização de canais e suporte em eventos.">Channel organization and event support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>DUDUDS • Staff Portfolio</footer>
+
+</div>
+
+<script>
+let lang = "en";
+
+function applyLang(){
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    el.textContent = el.dataset[lang];
+  });
+
+  document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+}
+
+function toggleLang(){
+  lang = lang === "en" ? "pt" : "en";
+  applyLang();
+}
+
+applyLang();
+</script>
+
+</body>
+</html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DUDUDS | Staff Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -44,28 +44,55 @@ header{
   margin-bottom:38px;
 }
 
+.logo,h1,.subtitle,.section-head h2,.card h3,.server-card h3{
+  font-family:"Outfit",sans-serif;
+}
+
 .logo{
-  font-size:17px;
+  font-size:18px;
   font-weight:900;
 }
 
 .lang{
+  position:relative;
+  width:82px;
+  height:36px;
   background:#050505;
   border:1px solid var(--border);
-  color:#ddd;
+  color:#fff;
   border-radius:999px;
-  padding:8px 14px;
-  font-size:12px;
-  font-weight:900;
   cursor:pointer;
-  transition:.22s ease;
+  font-size:11px;
+  font-weight:900;
+  overflow:hidden;
 }
 
-.lang:hover{
-  transform:translateY(-2px);
-  border-color:var(--border2);
-  background:#0d0d0d;
+.lang span{
+  position:relative;
+  z-index:2;
 }
+
+.lang:before{
+  content:"";
+  position:absolute;
+  top:4px;
+  left:4px;
+  width:36px;
+  height:26px;
+  background:#fff;
+  border-radius:999px;
+  transition:.25s ease;
+}
+
+.lang.pt:before{
+  left:40px;
+}
+
+.lang .eng{color:#000;margin-right:10px}
+.lang .pt{color:#888}
+
+.lang.pt .eng{color:#888}
+.lang.pt .pt{color:#000}
 
 .hero{
   max-width:840px;
@@ -78,10 +105,7 @@ header{
   transition:.25s ease;
 }
 
-.hero:hover,
-.card:hover,
-.server-card:hover,
-.skill:hover{
+.hero:hover,.card:hover,.server-card:hover,.skill:hover{
   transform:translateY(-5px);
   border-color:var(--border2);
   background:#090909;
@@ -98,15 +122,15 @@ header{
 }
 
 h1{
-  font-size:56px;
+  font-size:54px;
   line-height:1;
-  letter-spacing:-2px;
+  letter-spacing:-1.5px;
   font-weight:900;
   margin-bottom:12px;
 }
 
 .subtitle{
-  color:#cfcfcf;
+  color:#d0d0d0;
   font-size:16px;
   font-weight:800;
   margin-bottom:14px;
@@ -132,7 +156,7 @@ h1{
   background:#fff;
   color:#000;
   border-radius:999px;
-  padding:11px 16px;
+  padding:11px 17px;
   font-size:13px;
   font-weight:900;
   transition:.22s ease;
@@ -148,18 +172,14 @@ h1{
   transform:translateY(-3px);
 }
 
-.section{
-  margin-top:54px;
-}
+.section{margin-top:54px}
 
-.section-head{
-  margin-bottom:18px;
-}
+.section-head{margin-bottom:18px}
 
 .section-head h2{
-  font-size:30px;
+  font-size:29px;
   font-weight:900;
-  letter-spacing:-1px;
+  letter-spacing:-.5px;
 }
 
 .section-head p{
@@ -184,8 +204,8 @@ h1{
 }
 
 .card h3{
-  font-size:20px;
-  font-weight:900;
+  font-size:21px;
+  font-weight:800;
   margin-bottom:10px;
 }
 
@@ -195,9 +215,7 @@ h1{
   line-height:1.6;
 }
 
-.card ul{
-  padding-left:18px;
-}
+.card ul{padding-left:18px}
 
 .skills{
   display:grid;
@@ -261,7 +279,7 @@ h1{
 
 .server-card h3{
   font-size:19px;
-  font-weight:900;
+  font-weight:800;
   margin-bottom:7px;
 }
 
@@ -342,13 +360,6 @@ footer{
 
 @media(max-width:620px){
   .page{padding:22px 14px 42px}
-
-  header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-
   .logo{font-size:15px}
 
   .hero{
@@ -370,11 +381,8 @@ footer{
   }
 
   .servers{grid-template-columns:1fr}
-
-  .section-head h2{font-size:27px}
-
+  .section-head h2{font-size:26px}
   .actions{flex-direction:column}
-
   .btn{text-align:center}
 }
 </style>
@@ -385,7 +393,9 @@ footer{
 
 <header>
   <div class="logo">DUDUDS</div>
-  <button class="lang" onclick="toggleLang()">ENG/PT</button>
+  <button class="lang" onclick="toggleLang()">
+    <span class="eng">ENG</span><span class="pt">PT</span>
+  </button>
 </header>
 
 <section class="hero">
@@ -402,10 +412,11 @@ footer{
   <div class="actions">
     <a class="btn" href="#servers" data-en="View Communities" data-pt="Ver Comunidades">View Communities</a>
     <a class="btn dark" href="#skills" data-en="View Skills" data-pt="Ver Habilidades">View Skills</a>
+    <a class="btn dark" href="https://discord.com/users/738084792095998002" target="_blank">Hire Me</a>
   </div>
 </section>
 
-<section class="section grid-2" id="about">
+<section class="section grid-2">
   <div class="card">
     <h3 data-en="About Me" data-pt="Sobre Mim">About Me</h3>
     <p data-en="A responsible and organized profile focused on keeping communities safe, respectful and well managed." data-pt="Perfil responsável e organizado, focado em manter comunidades seguras, respeitosas e bem administradas.">
@@ -465,15 +476,15 @@ footer{
     <div class="server-card">
       <img class="server-icon" src="https://cdn.discordapp.com/attachments/1253521147962593320/1517695752598720592/image.png?ex=6a3737d0&is=6a35e650&hm=b75fd2532d65f52a993f3565b2bb828b856911ba6e88cc5ec025169dab6b2205&" alt="Anime Heroes">
       <h3>Anime Heroes</h3>
-      <div class="role-tag">Tmod</div>
-      <p data-en="Trial Moderator experience assisting the team and applying server rules." data-pt="Experiência como Trial Moderator auxiliando a equipe e aplicando regras.">Trial Moderator experience assisting the team and applying server rules.</p>
+      <div class="role-tag">Mod</div>
+      <p data-en="Moderator experience assisting the team and applying server rules." data-pt="Experiência como Moderador auxiliando a equipe e aplicando regras.">Moderator experience assisting the team and applying server rules.</p>
       <a class="join" href="https://discord.gg/Dp6zXHcGU" target="_blank">Join</a>
     </div>
 
     <div class="server-card">
       <img class="server-icon" src="https://cdn.discordapp.com/attachments/1509663890408083586/1517691223580606555/cb86298fcb50ac847ea82dfe1123c2d0.png?ex=6a373399&is=6a35e219&hm=30d8884924710e1727edd7811079d23e1aa0c3af908edd4f6b3eeace97120c8e&" alt="eFootball Brasil">
       <h3>eFootball Brasil</h3>
-      <div class="role-tag">Tmod</div>
+      <div class="role-tag">Mod</div>
       <p data-en="Community support, interaction moderation and server assistance." data-pt="Atendimento à comunidade, moderação de interações e suporte no servidor.">Community support, interaction moderation and server assistance.</p>
       <a class="join" href="https://discord.gg/efootballbrasil" target="_blank">Join</a>
     </div>
@@ -481,7 +492,7 @@ footer{
     <div class="server-card">
       <img class="server-icon" src="https://cdn.discordapp.com/attachments/1509663890408083586/1517692754614816798/image.png?ex=6a373506&is=6a35e386&hm=27352bd8ede03aee9a02cd6dbb4b6fbf916aec21bfc6fa45f2f54cf8a211e0b6&" alt="Anime Company">
       <h3>Anime Company</h3>
-      <div class="role-tag">Tmod</div>
+      <div class="role-tag">Mod</div>
       <p data-en="Support, member organization and community safety." data-pt="Suporte, organização de membros e segurança da comunidade.">Support, member organization and community safety.</p>
       <a class="join" href="https://discord.gg/anime-company-1449213658608697538" target="_blank">Join</a>
     </div>
@@ -507,12 +518,6 @@ footer{
         <b data-en="Member Support" data-pt="Atendimento aos membros">Member Support</b>
         <p data-en="Help with questions, reports and general guidance." data-pt="Ajuda com dúvidas, denúncias e orientações gerais.">Help with questions, reports and general guidance.</p>
       </div>
-
-      <div class="timeline-item">
-        <span data-en="Events" data-pt="Eventos">Events</span>
-        <b data-en="Activity Support" data-pt="Apoio em atividades">Activity Support</b>
-        <p data-en="Channel organization and event support." data-pt="Organização de canais e suporte em eventos.">Channel organization and event support.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -528,6 +533,9 @@ function applyLang(){
   document.querySelectorAll("[data-en]").forEach(el=>{
     el.textContent = el.dataset[lang];
   });
+
+  const btn = document.querySelector(".lang");
+  btn.classList.toggle("pt", lang === "pt");
 
   document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
 }
